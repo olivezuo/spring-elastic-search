@@ -36,7 +36,6 @@ public class SkuService {
 		documentService.indexDoc(sku, "sku", "sku", sku.getSku());				
 	}
 	
-	//@PostConstruct
 	public void updateDoc() throws InterruptedException, ExecutionException, IOException{
 		
 		Map<String, Object> fields = new HashMap<String, Object>();
@@ -52,10 +51,10 @@ public class SkuService {
 		customSearchRequest.setIndex("sku");
 		customSearchRequest.setType("sku");
 		
-		Map<String, Object> terms = new HashMap<String, Object>();
+/*		Map<String, Object> terms = new HashMap<String, Object>();
 		terms.put("sku", "sku001");
 		customSearchRequest.setTerms(terms);
-		
+*/		
 		Map<String, String> termsAggreations = new HashMap<String, String>();
 		termsAggreations.put("Width", "width");
 		termsAggreations.put("Length", "length");

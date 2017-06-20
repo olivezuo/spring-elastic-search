@@ -30,12 +30,7 @@ public class DocumentService {
 			
 	@Autowired
 	TransportClient transportClient;
-	
-	@PostConstruct
-	public void init() {
-		System.out.print("!!!This is " + transportClient.getClass());
-	}
-	
+		
 	public<D> void indexDoc(D doc, String index, String type, String id) throws JsonProcessingException{
 		ObjectMapper ObjectMapper = new ObjectMapper();
 		byte[] jsonDoc = ObjectMapper.writeValueAsBytes(doc);
@@ -45,8 +40,7 @@ public class DocumentService {
 		        .get();
 		logger.info(response.toString());
 	}
-	
-	
+		
 	public void deleteDoc(String index, String type, String id){
 		DeleteResponse response = transportClient.prepareDelete(index, type, id)
 		        .get();

@@ -25,9 +25,10 @@ public class ElasticSearchConfig {
 
 	@Bean
     public TransportClient elasticTransportClient() throws UnknownHostException {
+		String usernamepassword = elasticsearchProperties.getProperties().get("username") + ":" + elasticsearchProperties.getProperties().get("password");
 		Settings settings = Settings.builder().put("cluster.name", elasticsearchProperties.getClusterName())
 				.put("client.transport.sniff", false)
-				.put("xpack.security.user", "elastic:changeme")
+				.put("xpack.security.user", usernamepassword)
 				.build();
         String server = elasticsearchProperties.getClusterNodes().split(":")[0];
         Integer port = Integer.parseInt(elasticsearchProperties.getClusterNodes().split(":")[1]);

@@ -10,5 +10,8 @@ spring:
       cluster-nodes: localhost:9300
       repositories:
         enabled: false
+      properties:
+        username: elastic
+        password: changeme
 logging:
   file: ../logs/spring-elastic-search.log
