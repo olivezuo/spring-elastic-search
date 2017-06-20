@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  context-path: /spring-elastic-search
+spring:
+  application:
+    name: spring-elastic-search
+  data:
+    elasticsearch: 
+      cluster-name: testing
+      cluster-nodes: localhost:9300
+      repositories:
+        enabled: false
+logging:
+  file: ../logs/spring-elastic-search.log
