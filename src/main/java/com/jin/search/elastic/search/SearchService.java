@@ -48,7 +48,7 @@ public class SearchService {
 		searchRequestBuilder.setQuery(this.buildBoolQueryForSingleTerms(customSearchRequest.getTerms())
 										.buildBoolQueryForMultTerms(customSearchRequest.getMultiTerms())
 										.buildBoolQueryForRanges(customSearchRequest.getRanges())
-									.boolQueryBuilder);
+										.getBoolQueryBuilder());
 		
 		searchRequestBuilder = this.buildAggregationsForTerms(searchRequestBuilder, customSearchRequest.getTermsAggreations());
 		
@@ -130,6 +130,14 @@ public class SearchService {
 		
 		return searchRequestBuilder;
 		
+	}
+
+	public BoolQueryBuilder getBoolQueryBuilder() {
+		return boolQueryBuilder;
+	}
+	
+	public void setBoolQueryBuilder(BoolQueryBuilder boolQueryBuilder) {
+		this.boolQueryBuilder = boolQueryBuilder;
 	}
 
 }
