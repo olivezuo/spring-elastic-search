@@ -46,7 +46,7 @@ public class SearchService {
 				.setFetchSource(false);
 		
 		searchRequestBuilder.setQuery(this.buildBoolQueryForSingleTerms(customSearchRequest.getTerms())
-										.buildBoolQueryForMultTerms(customSearchRequest.getMultiTerms())
+										.buildBoolQueryForMultiTerms(customSearchRequest.getMultiTerms())
 										.buildBoolQueryForRanges(customSearchRequest.getRanges())
 										.getBoolQueryBuilder());
 		
@@ -74,7 +74,7 @@ public class SearchService {
 		
 	}
 	
-	private SearchService buildBoolQueryForMultTerms(Map<String, List<Object>> multiTerms) {
+	private SearchService buildBoolQueryForMultiTerms(Map<String, List<Object>> multiTerms) {
 		if(CollectionUtils.isEmpty(multiTerms)) {
 			return this;
 		}
